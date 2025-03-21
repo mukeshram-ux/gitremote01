@@ -1,1 +1,64 @@
-hllo dosto
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Alpine.js Product List</title>
+        <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+        <link rel="stylesheet" href="28feb.css">
+        <style>
+        
+            .star.filled {
+                color: green; 
+            }
+
+            .star.empty {
+                color: gray; 
+            }
+        </style>
+    </head>
+
+    <body>
+        <div x-data="productList()" x-init="init()" class="container">
+            <template x-for="product in products" :key="product.id">
+                <div class="product-card">
+                    <div class="image-section">
+                        <div class="image-header  ">
+                            <p x-text="product.title  + ' (' + product.id + ')'" ></p>
+                        </div>
+                        <div class="image-container">
+                             <img :src="product.thumbnail" alt="Product Image">
+                        </div>
+                    </div>
+                    <div class="details-section">
+                        <div class="row1">
+                             <p x-text="'title: ' + product.title"></p>
+                        </div>
+                        <div>
+                            <template x-for="n in 5 " :key="product.id">
+                                <span :class ="n <= Math.floor(product.rating) ? 'star filled' : 'star empty'">
+                                    ★
+                                </span>
+                            </template>
+                            <p x-text="'Price: $' + product.price"></p>
+                    </div> 
+                </div>
+            </template>
+        </div> 
+        <script>
+            function productList() {
+                return {
+                    products: [], 
+                    init() {
+                        fetch("https://dummyjson.com/products/") 
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log(data); 
+                                this.products = data.products.slice(0, 6); 
+                            })
+                            .catch(error => console.error("Error fetching products:", error));
+                    }
+                };
+            }
+        </script>
+    </body>
+</html>
