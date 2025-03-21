@@ -61,4 +61,82 @@
             }
         </script>
     </body>
-</html>
+</html> 
+
+container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+
+.product-card {
+    display: flex;
+    width: 200px;
+    height: 380px; 
+    border: 1px solid black;
+    margin: 10px;
+    overflow: hidden;
+    border-radius: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-direction: column; 
+   
+}
+
+.image-name-section {
+    display: flex; 
+    width: 100%;
+    padding: 10px;  
+}
+
+.image-container {
+    width: 56%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.image-header { 
+    width: 81%; 
+    height:80px;
+    padding-left: 2px;
+    text-align: left ;
+    font-size:34px; 
+    font-weight: bold;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    border: 1px solid black; background-color: aqua;
+    
+}
+
+.details-section {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.details-section p {
+    margin: 5px 0;
+    font-size: 46px;
+}
+
+.details-section .title {
+    font-weight: bold;
+    font-size: 100px;
+}
+
+.details-section .description {
+    font-size: 2222px;
+    margin-top: 10px;
+}
